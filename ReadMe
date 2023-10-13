@@ -1,0 +1,19 @@
+The main file is Automatic Report Sender, where scheduling is dealt with.
+
+ClientReportService deals with reading the clients from file (simplest implementation, unlikely to be used in a real
+scenario) and generates new reports for a given date (normally, current day). I left an old implementation there, in
+case need for it arises. It simply generates a reports for all clients for a given list of days. Can be disregarded.
+
+Ideally, the function generating reports would simply retrieve them from a directory where a different program
+created them, or call a different program to generate them.
+
+EmailService setups the email connection, constructs the email and sends the emails. There seem to be some issues
+with attachments. They get sent, but aren't properly recognized in Gmail or Windows. The method used does simply copy
+the contents of the report and puts them in the attachment. Perhaps there is a way to send the file directly, which
+may solve this issue, but I have not found it.
+
+For testing purposes, clients can be added to the Clients file using the "Name, Email" format and the necessary reports
+will be generated when daily_task is run. The entries I have contain invalid email addresses, but I confirmed emails get
+send to real addresses.
+
+Thank you very much for your time!
